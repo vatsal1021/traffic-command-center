@@ -30,12 +30,12 @@ st.markdown("""
 :root { --accent:#ff8c42; --hi:#ef4444; --med:#f59e0b; --lo:#22c55e; }
 .stApp { background: radial-gradient(1200px 600px at 20% -10%, #16202e 0%, #0d1117 55%); }
 #MainMenu, footer { visibility: hidden; }
-.hero { background: linear-gradient(135deg,#1b2735,#11161d); border:1px solid #2a3441;
-  border-left:4px solid var(--accent); border-radius:14px; padding:20px 26px; margin-bottom:8px; }
-.hero h1 { margin:0; font-size:28px; font-weight:800; letter-spacing:-.5px; color:#f3f6fa; }
-.hero p { margin:6px 0 0; color:#8b98a9; font-size:14px; }
-.pill { display:inline-block; background:#15324a; color:#7fd1ff; font-size:11px;
-  padding:3px 10px; border-radius:999px; margin-right:6px; border:1px solid #1d4b6b; }
+.hero { background: linear-gradient(135deg,#2874f0,#1a4fa0); border:1px solid #1a4fa0;
+  border-left:5px solid #ffe11b; border-radius:14px; padding:20px 26px; margin-bottom:8px; }
+.hero h1 { margin:0; font-size:28px; font-weight:800; letter-spacing:-.5px; color:#ffffff; }
+.hero p { margin:6px 0 0; color:#dce8ff; font-size:14px; }
+.pill { display:inline-block; background:#ffffff; color:#2874f0; font-size:11px;
+  padding:3px 10px; border-radius:999px; margin-right:6px; border:1px solid #ffe11b; font-weight:700; }
 .stTabs [data-baseweb="tab-list"] { gap:6px; }
 .stTabs [data-baseweb="tab"] { background:#161b22; border:1px solid #2a3441;
   border-radius:10px 10px 0 0; padding:10px 18px; font-weight:600; }
@@ -61,15 +61,15 @@ st.markdown("""
 /* Hero entrance + life */
 @keyframes riseIn { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
 @keyframes glowPulse {
-  0%,100% { box-shadow: 0 0 0 1px #2a3441, 0 0 22px -8px rgba(255,140,66,.5); }
-  50%     { box-shadow: 0 0 0 1px #3a4658, 0 0 40px -6px rgba(255,140,66,.85); }
+  0%,100% { box-shadow: 0 0 0 1px #1a4fa0, 0 0 22px -8px rgba(40,116,240,.5); }
+  50%     { box-shadow: 0 0 0 1px #2a5fc0, 0 0 40px -6px rgba(40,116,240,.85); }
 }
 @keyframes sweep { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
 @keyframes blink { 0%,45% { opacity:1; } 50%,95% { opacity:.25; } 100% { opacity:1; } }
 
 .hero { animation: riseIn .7s ease-out, glowPulse 4.5s ease-in-out infinite; }
 .hero h1 {
-  background: linear-gradient(90deg,#f3f6fa 20%,#ff8c42 50%,#f3f6fa 80%);
+  background: linear-gradient(90deg,#ffffff 35%,#ffe11b 50%,#ffffff 65%);
   background-size: 200% auto; -webkit-background-clip: text; background-clip: text;
   -webkit-text-fill-color: transparent; animation: sweep 6s linear infinite;
 }
