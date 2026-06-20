@@ -193,14 +193,22 @@ with tab0:
             st.info("No events recorded in this hour.")
 
     with col_chart:
-        st.markdown('<div class="section">Live Incident Composition</div>', unsafe_allow_html=True)
+        st.markdown('<div class="section">Severity by Event Cause (this hour)</div>', unsafe_allow_html=True)
         if len(sub):
-            # NEW: Professional Interactive Donut Chart
-            fig_donut = px.pie(sub, names='event_cause', hole=0.65, template="plotly_dark",
-                               color_discrete_sequence=px.colors.qualitative.Pastel)
-            fig_donut.update_layout(margin=dict(t=20, b=20, l=10, r=10), showlegend=False)
-            fig_donut.update_traces(textposition='inside', textinfo='percent+label')
-            st.plotly_chart(fig_donut, use_container_width=True, height=400)
+            import plotly.express as px
+            sev_by_cause = (sub.groupby("event_cause")["severity"]
+                            .mean().sort_values(ascending=True).reset_index())
+            sev_by_cause = sev_by_cause[sev_by_cause["event_cause"] != "Unknown"].tail(8)
+            fig_bar = px.bar(sev_by_cause, x="severity", y="event_cause",
+                             orientation="h", template="plotly_dark",
+                             color="severity", color_continuous_scale=["#22c55e", "#f59e0b", "#ef4444"],
+                             range_color=[0, 1])
+            fig_bar.update_layout(margin=dict(t=20, b=20, l=10, r=10),
+                                  coloraxis_showscale=False,
+                                  xaxis_title="Mean severity (0–1)", yaxis_title="",
+                                  plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)',
+                                  height=400)
+            st.plotly_chart(fig_bar, use_container_width=True)
         else:
             st.write("Awaiting data...")
 
