@@ -39,8 +39,8 @@ st.markdown("""
 .stTabs [data-baseweb="tab-list"] { gap:6px; }
 .stTabs [data-baseweb="tab"] { background:#161b22; border:1px solid #2a3441;
   border-radius:10px 10px 0 0; padding:10px 18px; font-weight:600; }
-.stTabs [aria-selected="true"] { background:#1f2937; color:var(--accent);
-  border-bottom:2px solid var(--accent); }
+.stTabs [aria-selected="true"] { background:#1a3a6b; color:#ffffff;
+  border-bottom:3px solid #ffe11b; }
 [data-testid="stMetric"] { background:#161b22; border:1px solid #2a3441;
   border-radius:12px; padding:16px 18px; }
 [data-testid="stMetricValue"] { font-size:28px; font-weight:800; }
