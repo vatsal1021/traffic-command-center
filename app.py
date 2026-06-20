@@ -158,8 +158,13 @@ with tab0:
     k1.metric("Active events", len(sub))
     k2.metric("Mean severity", f"{sub['severity'].mean():.2f}" if len(sub) else "—")
     k3.metric("High-severity events", int((sub["severity"] >= 0.66).sum()))
-    busiest = sub["zone"].value_counts().idxmax() if len(sub) else "—"
+    real_zones = sub[sub["zone"] != "Unknown"]["zone"]
+    busiest = real_zones.value_counts().idxmax() if len(real_zones) else "Sparse data"
     k4.metric("Busiest zone", busiest)
+    k4.caption("Zone recorded for ~42% of events; busiest shown from available data.")
+    
+    
+    
 
     col_map, col_chart = st.columns([2, 1])
     
