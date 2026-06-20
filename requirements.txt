@@ -1,8 +1,9 @@
 streamlit
-pandas
-numpy
+lightgbm==4.6.0
+scikit-learn==1.6.1
+numpy==2.2.6
+pandas==2.3.3
 joblib
-lightgbm
 pulp
 plotly
 folium
