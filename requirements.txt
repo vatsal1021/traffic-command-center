@@ -1,0 +1,10 @@
+streamlit
+pandas
+numpy
+joblib
+lightgbm
+pulp
+plotly
+folium
+streamlit-folium
+pydeck
